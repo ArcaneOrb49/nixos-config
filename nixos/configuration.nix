@@ -49,8 +49,27 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+ # services.xserver.displayManager.gdm.enable = true;
+ # services.xserver.desktopManager.gnome.enable = true;
+
+
+
+services.greetd.enable = true;
+services.greetd.settings = {
+  default_session = {
+    command = "Hyprland";
+    user = "arvid";
+  };
+};
+
+hardware.graphics.enable = true;
+xdg.portal.enable = true;
+#xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+security.polkit.enable = true;
+
+
+
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -103,9 +122,6 @@
   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Gam  e Transfers
 };
- # {
- # programs.hyprland.enable = true;
- # }
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

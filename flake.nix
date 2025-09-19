@@ -22,12 +22,37 @@
 	  specialArgs = { inherit hyprland; }; # pass hyprland into modules
           modules = [
             ./nixos/configuration.nix
- {
+
+
+ # Inline module that applies Hyprland + overlay
+            {
               programs.hyprland.enable = true;
               programs.hyprland.package = hyprland.packages.${system}.default;
-            }
-	{
-  	environment.systemPackages = with pkgs; [
+
+              nixpkgs.overlays = [ hyprland.overlays.default ];
+	}
+
+{
+  services.greetd.enable = true;
+  services.greetd.settings = {
+    default_session = {
+      command = "Hyprland";
+      user = "arvid";
+    };
+  };
+
+  # Graphics + portals (recommended)
+  hardware.graphics.enable = true;            # new name on recent NixOS
+  xdg.portal.enable = true;
+#  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  security.polkit.enable = true;              # for portals / permissions
+}
+
+
+
+   
+        {
+	environment.systemPackages = with pkgs; [
     	vscode
   	];
 	}

@@ -140,6 +140,7 @@ security.polkit.enable = true;
 	kitty
 	neofetch
 	grim
+	slurp
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

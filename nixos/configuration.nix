@@ -139,6 +139,7 @@ security.polkit.enable = true;
 	git
 	kitty
 	neofetch
+	grim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

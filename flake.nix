@@ -23,8 +23,8 @@
             ./nixos/configuration.nix
  {
         programs.hyprland.enable = true;
-        programs.hyprland.package = hyprland.packages.${system}.default;
-        nixpkgs.overlays = [ hyprland.overlays.default ];
+      #  programs.hyprland.package = hyprland.packages.${system}.default;
+      #  nixpkgs.overlays = [ hyprland.overlays.default ];
       }
 #	     {
  #           programs.hyprland.enable = true;

@@ -103,9 +103,9 @@
   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Gam  e Transfers
 };
-  
-  programs.hyprland.enable = true;
-
+ # {
+ # programs.hyprland.enable = true;
+ # }
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

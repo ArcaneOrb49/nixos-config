@@ -141,6 +141,7 @@ security.polkit.enable = true;
 	neofetch
 	grim
 	slurp
+	waybar
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

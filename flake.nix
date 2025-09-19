@@ -23,7 +23,7 @@
             ./nixos/configuration.nix
 	     {
             programs.hyprland.enable = true;
-            programs.hyprland.package = hyprland.packages.${system}.default;
+           # programs.hyprland.package = hyprland.packages.${system}.default;
              }
 	{
   	environment.systemPackages = with pkgs; [

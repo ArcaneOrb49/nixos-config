@@ -19,17 +19,13 @@
       nixosConfigurations = {
         myNixos = nixpkgs.lib.nixosSystem {
           inherit system;
+	  specialArgs = { inherit hyprland; }; # pass hyprland into modules
           modules = [
             ./nixos/configuration.nix
  {
-        programs.hyprland.enable = true;
-      #  programs.hyprland.package = hyprland.packages.${system}.default;
-      #  nixpkgs.overlays = [ hyprland.overlays.default ];
-      }
-#	     {
- #           programs.hyprland.enable = true;
-           # programs.hyprland.package = hyprland.packages.${system}.default;
-  #           }
+              programs.hyprland.enable = true;
+              programs.hyprland.package = hyprland.packages.${system}.default;
+            }
 	{
   	environment.systemPackages = with pkgs; [
     	vscode

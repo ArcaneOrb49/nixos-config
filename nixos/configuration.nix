@@ -153,6 +153,7 @@ environment.variables = {
 	networkmanagerapplet
 	greetd.gtkgreet
 	sway
+	unzip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -18,14 +18,14 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
+  networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
+  
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+   networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -123,7 +123,7 @@ security.polkit.enable = true;
   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Gam  e Transfers
 };
 
-
+	
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow unfree packages
@@ -151,6 +151,8 @@ environment.variables = {
 	slurp
 	waybar
 	wofi
+#	networkmanager_dmenu
+	networkmanagerapplet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

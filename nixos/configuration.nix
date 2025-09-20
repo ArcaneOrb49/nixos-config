@@ -10,12 +10,54 @@
       ./hardware-configuration.nix
     ];
 
+
+
+
+
+
+	#####################################
+	##                                 ##
+	##                                 ##
+	##                                 ##
+	##  System Settings !!!CareFul!!!  ##
+	##                                 ##
+	##                                 ##
+	#####################################
+
+
+
+
+
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Enable CUPS to print documents.
+  services.printing.enable = false;
+
+
+
+	#####################################
+	##                                 ##
+	##                                 ##
+	##                                 ##
+	##            Network              ##
+	##                                 ##
+	##                                 ##
+	#####################################
+
+
+
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
@@ -25,15 +67,27 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   
 
+  # Enable networking
+   networking.networkmanager.enable = true;
 
+
+
+
+
+
+	#####################################
+	##                                 ##
+	##                                 ##
+	##                                 ##
+	##           Bluetooth             ##
+	##                                 ##
+	##                                 ##
+	#####################################
 
   
   # Enable Bluetooth service
   hardware.bluetooth.enable = true;
   hardware.bluetooth.package =  pkgs.bluez;   # full BlueZ with extra tools
-
-
-
 
   # Optional: enable Blueman (GTK tray app)
   services.blueman.enable = true;
@@ -41,10 +95,15 @@
 
 
 
+	#####################################
+	##                                 ##
+	##                                 ##
+	##                                 ##
+	##          Localisation           ##
+	##                                 ##
+	##                                 ##
+	#####################################
 
-
-  # Enable networking
-   networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -63,6 +122,26 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "de";
+    variant = "";
+  };
+
+  # Configure console keymap
+  console.keyMap = "de";
+
+
+
+	#####################################
+	##                                 ##
+	##                                 ##
+	##                                 ##
+	##        X11 Window System        ##
+	##               &                 ##
+	##          GNOME Desktop          ##
+	#####################################
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -89,17 +168,31 @@ security.polkit.enable = true;
 
 
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
 
-  # Configure console keymap
-  console.keyMap = "de";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = false;
+
+
+
+
+
+
+
+
+
+
+
+
+	#####################################
+	##                                 ##
+	##                                 ##
+	##                                 ##
+	##              Audio              ##
+	##                                 ##
+	##                                 ##
+	#####################################
+
+
+
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -117,8 +210,19 @@ security.polkit.enable = true;
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+
+
+
+
+
+	#####################################
+	##                                 ##
+	##                                 ##
+	##                                 ##
+	##              User               ##
+	##                                 ##
+	##                                 ##
+	#####################################
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.arvid = {
@@ -126,26 +230,10 @@ security.polkit.enable = true;
     description = "Arvid Meltzer";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
+    #  Enable packages here
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-  
-  # Installs Steam with dependencies
-  programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Gam  e Transfers
-};
-
-	
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
 
 # Cursor settings for Wayland
@@ -161,17 +249,51 @@ environment.variables = {
 
 
 	#####################################
-	##				   ##
-	##				   ##
-	##				   ##
+	##                                 ##
+	##                                 ##
+	##                                 ##
 	##    Packages to be installed     ##
-	##				   ##
-	##				   ##
+	##                                 ##
+	##                                 ##
 	#####################################
 
 
 
+  #####################################
+  ##             Settings            ##
+  #####################################
 
+
+ # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+
+
+
+  #####################################
+  ##         Enabled Programms       ##
+  #####################################
+
+
+
+  # Install firefox.
+  programs.firefox.enable = true;
+  
+  # Installs Steam with dependencies
+  programs.steam = {
+  enable = true;
+  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Gam  e Transfers
+};
+
+	
+
+
+ 
+  #####################################
+  ##         System Programms        ##
+  #####################################
 
 
 
@@ -195,6 +317,23 @@ environment.variables = {
 	unzip
 	bluez
   ];
+
+
+
+
+
+
+
+
+
+	#####################################
+	##                                 ##
+	##                                 ##
+	##                                 ##
+	##          Miscellaneous          ##
+	##                                 ##
+	##                                 ##
+	#####################################
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

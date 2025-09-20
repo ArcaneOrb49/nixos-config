@@ -23,6 +23,25 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  
+
+
+
+  
+  # Enable Bluetooth service
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.package =  pkgs.bluez;   # full BlueZ with extra tools
+
+
+
+
+  # Optional: enable Blueman (GTK tray app)
+  services.blueman.enable = true;
+
+
+
+
+
 
   # Enable networking
    networking.networkmanager.enable = true;
@@ -136,6 +155,26 @@ environment.variables = {
 };
 
 
+
+
+
+
+
+	#####################################
+	##				   ##
+	##				   ##
+	##				   ##
+	##    Packages to be installed     ##
+	##				   ##
+	##				   ##
+	#####################################
+
+
+
+
+
+
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -154,6 +193,7 @@ environment.variables = {
 	greetd.gtkgreet
 	sway
 	unzip
+	bluez
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

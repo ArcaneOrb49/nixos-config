@@ -153,6 +153,7 @@ environment.variables = {
 #	networkmanager_dmenu
 	networkmanagerapplet
 	greetd.gtkgreet
+	sway
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

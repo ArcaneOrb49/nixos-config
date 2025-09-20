@@ -152,6 +152,7 @@ environment.variables = {
 	wofi
 #	networkmanager_dmenu
 	networkmanagerapplet
+	greetd.gtkgreet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

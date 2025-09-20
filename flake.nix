@@ -48,7 +48,8 @@
 
           environment.systemPackages = with pkgs; [
             vscode
-            # add whatever else you need here
+            hyprlock
+	    polkit
           ];
         }
       ];

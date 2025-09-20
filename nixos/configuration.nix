@@ -129,6 +129,14 @@ security.polkit.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+
+# Cursor settings for Wayland
+environment.variables = {
+  XCURSOR_THEME = "Adwaita";
+  XCURSOR_SIZE = "24";
+};
+
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

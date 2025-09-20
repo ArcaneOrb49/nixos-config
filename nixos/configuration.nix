@@ -150,7 +150,6 @@ environment.variables = {
 	slurp
 	waybar
 	wofi
-#	networkmanager_dmenu
 	networkmanagerapplet
 	greetd.gtkgreet
 	sway

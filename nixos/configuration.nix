@@ -307,8 +307,8 @@ environment.variables = {
 	sway
 	unzip
 	bluez
-	python314
-#	python313Packages.dbus-python
+	python313
+	python313Packages.dbus-python
   ];
 
 

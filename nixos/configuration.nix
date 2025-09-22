@@ -310,6 +310,7 @@ environment.variables = {
 	python313
 	python313Packages.dbus-python
 	openvpn
+	polkit
   ];
 
 

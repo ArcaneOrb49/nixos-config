@@ -308,7 +308,7 @@ environment.variables = {
 	unzip
 	bluez
 	python313
-	(python3.withPackages (ps: [ ps.dbus-python ]))
+	python313Packages.dbus-python
   ];
 
 

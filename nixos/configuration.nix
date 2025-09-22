@@ -309,6 +309,7 @@ environment.variables = {
 	bluez
 	python313
 	python313Packages.dbus-python
+	openvpn
   ];
 
 

@@ -292,7 +292,11 @@ environment.variables = {
   ##         System Programms        ##
   #####################################
 
-
+	fonts.packages = with pkgs; [
+ 	nerd-fonts.fira-code
+	nerd-fonts.droid-sans-mono
+	nerd-fonts._0xproto
+	];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

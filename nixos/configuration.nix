@@ -313,6 +313,7 @@ environment.variables = {
 	polkit
 	pywal
 	hyprpaper
+	dejavu_fonts
   ];
 
 

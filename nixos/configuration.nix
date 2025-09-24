@@ -312,6 +312,7 @@ environment.variables = {
 	openvpn
 	polkit
 	pywal
+	hyprpaper
   ];
 
 

@@ -316,6 +316,7 @@ environment.variables = {
 	pywal
 	hyprpaper
 	dejavu_fonts
+	nerd-fonts._0xproto
   ];
 
 

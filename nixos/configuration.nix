@@ -132,6 +132,10 @@
   console.keyMap = "de";
 
 
+	fonts.fontconfig.enable = true;
+
+
+
 
 
 
